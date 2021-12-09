@@ -8,6 +8,14 @@
 ### Database Desgin
 ![Database Desgin](https://github.com/Mikhail-Mouner/initium/blob/master/Database.PNG?raw=true)
 
+### Screen
+![Screen 1](https://github.com/Mikhail-Mouner/initium/blob/master/screen/1.PNG?raw=true)
+![Screen 2](https://github.com/Mikhail-Mouner/initium/blob/master/screen/2.PNG?raw=true)
+![Screen 3](https://github.com/Mikhail-Mouner/initium/blob/master/screen/3.PNG?raw=true)
+![Screen 4](https://github.com/Mikhail-Mouner/initium/blob/master/screen/4.PNG?raw=true)
+![Screen 5](https://github.com/Mikhail-Mouner/initium/blob/master/screen/5.PNG?raw=true)
+![Screen 6](https://github.com/Mikhail-Mouner/initium/blob/master/screen/6.PNG?raw=true)
+
 
 ### Installation
 

@@ -52,15 +52,24 @@
                 <ul class="navbar-nav me-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">home</a>
+                        <a class="nav-link" href="{{ route('home') }}">
+                            <i class="fa fa-home fa-fw" aria-hidden="true"></i> home
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cart') }}">cart</a>
+                        <a class="nav-link" href="{{ route('cart') }}">
+                            <i class="fa fa-cart-arrow-down fa-fw" aria-hidden="true"></i> cart
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('historical') }}">
+                            <i class="fa fa-history fa-fw" aria-hidden="true"></i> historical
+                        </a>
                     </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto" style="float: right;">
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
@@ -87,6 +96,9 @@
                                 </a>
                                 <a class="dropdown-item" href="{{ route('cart') }}">
                                     Cart
+                                </a>
+                                <a class="dropdown-item" href="{{ route('historical') }}">
+                                    Historical
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

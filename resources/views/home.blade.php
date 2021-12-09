@@ -73,7 +73,7 @@
                                     <div class="col-sm-10 col-sm-offset-1">
                                         <div class="col-sm-4 col-sm-offset-4">
                                             <div class="choice" data-toggle="wizard-radio" rel="tooltip"
-                                                 title="This is good if you travel alone.">
+                                                 title="This is good if you not decided yet.">
                                                 <input type="radio" name="type" value="all" checked>
                                                 <div class="icon">
                                                     <i class="material-icons">bookmark</i>
@@ -186,14 +186,16 @@
             e.preventDefault();
             let hotel_id = $('.card-hotel.active').data('id')
             let branch_id = $('.card-branch.active').data('id')
-            let type_id = $('[name="type"]').val()
+            let type_id = $('[name="type"]:checked').val()
+
+            if (typeof type_id == 'undefined') type_id = 'all';
 
             if (typeof branch_id == 'undefined') {
                 $('[href="#branches"]').click()
             } else {
                 $.post(
                     e.currentTarget.action,
-                    {'hotel_id': hotel_id, 'branch_id': branch_id, 'type': type_id, '_token': '{{ csrf_token() }}' },
+                    {'hotel_id': hotel_id, 'branch_id': branch_id, 'type': type_id, '_token': '{{ csrf_token() }}'},
                     (result) => {
                         window.location.href = result.url
                     }
@@ -201,5 +203,4 @@
             }
         })
     </script>
-
 @endpush

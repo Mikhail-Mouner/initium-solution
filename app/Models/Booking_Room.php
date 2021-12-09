@@ -11,4 +11,10 @@ class Booking_Room extends Model
     protected $fillable = ['booking_id', 'room_id'];
     protected $table = 'booking_rooms';
     public $timestamps = false;
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+
+    }
 }

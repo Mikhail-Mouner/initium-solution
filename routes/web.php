@@ -27,5 +27,5 @@ Route::middleware( 'auth' )->group( function () {
     Route::post( '/remove-item-cart', [ BookingController::class, 'removeToCart' ] )->name( 'remove_item_cart' );
     Route::get( '/cart', [ BookingController::class, 'cart' ] )->name( 'cart' );
     Route::get( '/booking', [ BookingController::class, 'booking' ] )->name( 'booking' );
-    //Route::get('/{slug}/branches/{id}/rooms', [HotelController::class, 'rooms'])->name('hotel_branch_rooms');
+    Route::get( '/historical', [ BookingController::class, 'historical' ] )->name( 'historical' );
 } );
