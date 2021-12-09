@@ -20,11 +20,14 @@
 ### Installation
 
 ```sh
-git clone https://github.com/Mikhail-Mouner/initium.git
+git clone https://github.com/Mikhail-Mouner/initium-solution.git
+```
+```sh
+cd initium-solution
 ```
 
 ```sh
-cp .env.exapmle .env
+cp .env.example .env
 ```
 
 ```sh
@@ -37,6 +40,12 @@ npm install && npm run dev
 
 ```sh
 php artisan key:generate
+```
+
+Create Table Name( initium )
+
+```sh
+php artisan migrate --seed
 ```
 
 ```sh
