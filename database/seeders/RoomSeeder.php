@@ -18,12 +18,11 @@ class RoomSeeder extends Seeder
     public function run()
     {
         $faker = Factory::create();
-
-        for ($i=0;$i<15;$i++){
-            Room::create([
+        $branchs = Branch::all();
+        foreach ($branchs as $branch) {
+            $branch->rooms()->create([
                 'price' => $faker->randomNumber(2),
                 'floor' => $faker->numberBetween(1,5),
-                'branch_id' => Branch::inRandomOrder()->first()->id,
                 'room_type_id' => RoomType::inRandomOrder()->first()->id,
             ]);
         }

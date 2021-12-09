@@ -17,6 +17,7 @@ class CreateBookingRoomsTable extends Migration
             $table->id();
             $table->foreignId('booking_id')->constrained()->onDelete('cascade');
             $table->foreignId('room_id')->constrained()->onDelete('cascade');
+            $table->unsignedInteger('room_no')->default(1);
         });
     }
 

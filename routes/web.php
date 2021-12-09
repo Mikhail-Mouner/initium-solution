@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HotelController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,10 @@ Auth::routes();
 Route::middleware( 'auth' )->group( function () {
     // Home Page
     Route::get( '/', [ HomeController::class, 'index' ] )->name( 'home' );
-    Route::post( '/', [ HomeController::class, 'home_submit' ] )->name( 'home_submit' );
-    //Route::get('/{slug}/branches/{id}', [HotelController::class, 'rooms'])->name('hotel_branch');
+    Route::get( '/{slug}/branches/{id}/rooms/{type}', [ HotelController::class, 'hotelRooms' ] )->name( 'hotel_branch_rooms' );
+    Route::post( '/add-to-cart', [ BookingController::class, 'addToCart' ] )->name( 'add_to_cart' );
+    Route::post( '/remove-item-cart', [ BookingController::class, 'removeToCart' ] )->name( 'remove_item_cart' );
+    Route::get( '/cart', [ BookingController::class, 'cart' ] )->name( 'cart' );
+    Route::get( '/booking', [ BookingController::class, 'booking' ] )->name( 'booking' );
     //Route::get('/{slug}/branches/{id}/rooms', [HotelController::class, 'rooms'])->name('hotel_branch_rooms');
 } );

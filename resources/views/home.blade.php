@@ -10,7 +10,7 @@
         .card-branch:hover,
         .card-hotel.active,
         .card-hotel:hover {
-            background-color: #f44336;
+            background-color: #9c27b0;
             color: #ffffff;
         }
     </style>
@@ -22,10 +22,9 @@
         <div class="col-sm-12">
             <!--      Wizard container        -->
             <div class="wizard-container">
-                <div class="card wizard-card" data-color="red" id="wizard">
+                <div class="card wizard-card" data-color="purple" id="wizard">
                     <form action="{{ route('home_submit') }}" method="post" id="form-hotel">
                         <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
-
                         <div class="wizard-header">
                             <h3 class="wizard-title">
                                 Book a Room
@@ -75,7 +74,7 @@
                                         <div class="col-sm-4 col-sm-offset-4">
                                             <div class="choice" data-toggle="wizard-radio" rel="tooltip"
                                                  title="This is good if you travel alone.">
-                                                <input type="radio" name="type" value="all">
+                                                <input type="radio" name="type" value="all" checked>
                                                 <div class="icon">
                                                     <i class="material-icons">bookmark</i>
                                                 </div>
@@ -119,9 +118,9 @@
                         </div>
                         <div class="wizard-footer">
                             <div class="pull-right">
-                                <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next'
+                                <input type='button' class='btn btn-next btn-fill btn-primary btn-wd' name='next'
                                        value='Next' />
-                                <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd'
+                                <input type='submit' class='btn btn-finish btn-fill btn-primary btn-wd'
                                        name='submit' value='finish' />
                             </div>
                             <div class="pull-left">
@@ -161,7 +160,6 @@
                 let response = res.data
                 let mssg = `<div class="row">`;
                 mssg += `<div class="col-sm-12"><h4 class="info-text">${response.name}</h4></div>`;
-                console.log(response)
                 for (let i = 0; i < response.branches.length; i++) {
                     let branch = response.branches[i];
                     mssg += `
@@ -193,15 +191,13 @@
             if (typeof branch_id == 'undefined') {
                 $('[href="#branches"]').click()
             } else {
-                $.ajax({
-                    url: e.currentTarget.action,
-                    type: 'post',
-                    dataType: 'application/json',
-                    data: {'hotel_id': hotel_id, 'branch_id': branch_id, 'type': type_id},
-                    success: (result) => {
-                        window.location.href = result
+                $.post(
+                    e.currentTarget.action,
+                    {'hotel_id': hotel_id, 'branch_id': branch_id, 'type': type_id, '_token': '{{ csrf_token() }}' },
+                    (result) => {
+                        window.location.href = result.url
                     }
-                })
+                )
             }
         })
     </script>

@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('api')->group(function () {
     // Home Page
     Route::get('/{slug}/branches', [HotelController::class, 'index'])->name('hotel_branches');
+    Route::post( '/home-submit', [ HotelController::class, 'homeSubmit' ] )->name( 'home_submit' );
 });

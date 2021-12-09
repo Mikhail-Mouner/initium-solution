@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -27,4 +26,5 @@ class HomeController extends Controller
         $hotels = Hotel::has('branches')->withCount('branches')->get();
         return view('home')->with(['hotels'=>$hotels]);
     }
+
 }
